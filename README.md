@@ -39,16 +39,16 @@ The goal is to provide a **scalable, modern NLP solution** that demonstrates the
 
 ---
 
-## 📁 Project Structure
+## 📦 Project Structure
 
 
 ```bash
-Sentiment_Analysis_DeepLearning/
+📁Sentiment_Analysis_DeepLearning/
 │
-├── notebooks/
+├─📁 notebooks/
 │ └── sentiment_dl.ipynb # Main Colab/Jupyter notebook
 │
-├── src/
+├─📁 src/
 │ ├── data_loader.py # Download dataset from external link
 │ ├── preprocess.py # Text cleaning and preprocessing
 │ ├── lstm_model.py # Build LSTM model
