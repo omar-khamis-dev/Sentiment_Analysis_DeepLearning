@@ -1,4 +1,4 @@
-# ✨ Sentiment Analysis – Deep Learning Notebook Version
+# ✨ Sentiment Analysis – Deep Learning Version
 
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg?logo=python)
