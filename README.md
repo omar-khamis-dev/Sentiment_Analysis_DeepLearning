@@ -17,6 +17,7 @@
 ![NLTK](https://img.shields.io/badge/NLTK-3.9.1-yellowgreen)
 ![spaCy](https://img.shields.io/badge/spaCy-3.7.4-lightblue)
 ![Torch](https://img.shields.io/badge/PyTorch-2.1.0-red?logo=PyTorch)
+
 ![TorchVision](https://img.shields.io/badge/TorchVision-0.16.1-red)
 ![TorchText](https://img.shields.io/badge/TorchText-0.17.1-red)
 ![Evaluate](https://img.shields.io/badge/Evaluate-0.4.6-blue)
