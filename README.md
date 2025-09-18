@@ -175,19 +175,19 @@ Version 2 represents a significant improvement over the first version because it
 ## 📊 Visual Outputs
 
 ### 1️⃣ Data Loading
-![Data Loader](images/Data loader.jpg)
+![Data Loader](images/Data_loader.jpg)
 
 ### 2️⃣ LSTM Model Build & Training
-![LSTM Tokenization & Model Build](images/LSTM tokenization and model build.jpg)
-![LSTM Model Training](images/LSTM Model training.jpg)
-![LSTM Confusion Matrix](images/LSTM Confusion matrix.jpg)
+![LSTM Tokenization & Model Build](images/LSTM_tokenization_and_model_build.jpg)
+![LSTM Model Training](images/LSTM_Model_training.jpg)
+![LSTM Confusion Matrix](images/LSTM_Confusion_matrix.jpg)
 
 ### 3️⃣ DistilBERT Model Build & Training
-![DistilBERT Model Training](images/DistilBERT Model training.jpg)
-![DistilBERT Confusion Matrix](images/DistilBERT Confusion matrix.jpg)
+![DistilBERT Model Training](images/DistilBERT_Model_training.jpg)
+![DistilBERT Confusion Matrix](images/DistilBERT_Confusion_matrix.jpg)
 
 ### 4️⃣ Performance Comparison
-![Performance Comparison](images/Performance Comparison.jpg)
+![Performance Comparison](images/Performance_Comparison.jpg)
 
 ---
 
