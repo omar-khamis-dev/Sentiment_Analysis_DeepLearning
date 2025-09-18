@@ -180,18 +180,18 @@ Version 2 represents a significant improvement over the first version because it
 ### 2️⃣ LSTM Model Build & Training
 ![LSTM Tokenization & Model Build](images/LSTM_tokenization_and_model_build.jpg)
 
-LSTM Model Training
+### LSTM Model Training
 ![LSTM Model Training](images/LSTM_Model_training.jpg)
 
-LSTM Confusion Matrix
+### LSTM Confusion Matrix
 ![LSTM Confusion Matrix](images/LSTM_Confusion_matrix.jpg)
 
 ### 3️⃣ DistilBERT Model Build & Training
 
-DistilBERT Model Training
+### DistilBERT Model Training
 ![DistilBERT Model Training](images/DistilBERT_Model_training.jpg)
 
-DistilBERT Confusion Matrix
+### DistilBERT Confusion Matrix
 ![DistilBERT Confusion Matrix](images/DistilBERT_Confusion_matrix.jpg)
 
 ### 4️⃣ Performance Comparison
