@@ -1,26 +1,38 @@
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout
 
-# Data processing
-max_words = 20000
-max_len = 100
+def build_lstm_model(vocab_size, embedding_dim=128, lstm_units=128, dropout_rate=0.3, num_classes=2):
+    """
+    Build an LSTM model for text classification.
 
-tokenizer = Tokenizer(num_words=max_words)
-tokenizer.fit_on_texts(df["clean_text"])
-sequences = tokenizer.texts_to_sequences(df["clean_text"])
-X = pad_sequences(sequences, maxlen=max_len)
-y = df["target"].values
+    Args:
+        vocab_size (int): Size of the vocabulary.
+        embedding_dim (int): Dimension of word embeddings.
+        lstm_units (int): Number of LSTM units.
+        dropout_rate (float): Dropout rate to prevent overfitting.
+        num_classes (int): Number of output classes.
 
-# LSTM model
-model = Sequential([
-    Embedding(input_dim=max_words, output_dim=128),
-    LSTM(128, dropout=0.2, recurrent_dropout=0.2),
-    Dense(1, activation="sigmoid")
-])
+    Returns:
+        tf.keras.Model: Compiled LSTM model.
+    """
+    model = Sequential()
 
-model.build(input_shape=(None, max_len))
+    # Embedding layer to learn word representations
+    model.add(Embedding(input_dim=vocab_size, output_dim=embedding_dim, mask_zero=True))
 
-model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
-print(model.summary())
+    # LSTM layer
+    model.add(LSTM(units=lstm_units, return_sequences=False))
+
+    # Dropout for regularization
+    model.add(Dropout(dropout_rate))
+
+    # Dense output layer with softmax for classification
+    model.add(Dense(num_classes, activation="softmax"))
+
+    # Compile the model
+    model.compile(loss="sparse_categorical_crossentropy",
+                  optimizer="adam",
+                  metrics=["accuracy"])
+
+    return model

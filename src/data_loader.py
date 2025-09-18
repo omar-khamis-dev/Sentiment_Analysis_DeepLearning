@@ -1,17 +1,30 @@
 import pandas as pd
-import requests, zipfile, io
+from sklearn.model_selection import train_test_split
 
-url = "https://nyc3.digitaloceanspaces.com/ml-files-distro/v1/sentiment-analysis-is-bad/data/training.1600000.processed.noemoticon.csv.zip"
-r = requests.get(url)
-z = zipfile.ZipFile(io.BytesIO(r.content))
-df = pd.read_csv(z.open("training.1600000.processed.noemoticon.csv"), encoding="latin-1")
+def load_data(path, text_col="text", label_col="label", test_size=0.2, random_state=42):
+    """
+    Load data from a CSV file and split into train and test sets.
 
-# Datast columns
-df.columns = ["target", "ids", "date", "flag", "user", "text"]
-df = df[["target", "text"]]
+    Args:
+        path (str): Path to the CSV file.
+        text_col (str): Column name containing the text data.
+        label_col (str): Column name containing the labels.
+        test_size (float): Proportion of the dataset to include in the test split.
+        random_state (int): Seed for reproducibility.
 
-# Convert target from 0=negative, 4=positive
-df["target"] = df["target"].replace({0:0, 4:1})
+    Returns:
+        X_train, X_test, y_train, y_test (DataFrames / Series)
+    """
+    df = pd.read_csv(path)
+    
+    if text_col not in df.columns or label_col not in df.columns:
+        raise ValueError(f"The dataset must contain columns: {text_col}, {label_col}")
 
-print(df.head())
-print(df.shape)
+    X_train, X_test, y_train, y_test = train_test_split(
+        df[text_col], df[label_col],
+        test_size=test_size,
+        random_state=random_state,
+        stratify=df[label_col]
+    )
+
+    return X_train, X_test, y_train, y_test

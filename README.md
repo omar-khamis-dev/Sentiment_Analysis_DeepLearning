@@ -13,7 +13,7 @@
 ## Overview
 This project is an **enhanced version** of the original Sentiment Analysis notebook.  
 It classifies text data (tweets, reviews, or short sentences) into **positive, negative, or neutral** sentiments using **Deep Learning** (LSTM / BiLSTM) and **Transformer models** (DistilBERT).  
-The goal is to provide a **scalable, modern NLP solution** that demonstrates the difference between classical deep learning and pretrained transformer architectures.
+The goal is to provide a **scalable, modern NLP solution** demonstrating the differences between classical deep learning and pretrained transformer architectures.
 
 ---
 
@@ -23,6 +23,11 @@ The goal is to provide a **scalable, modern NLP solution** that demonstrates the
 - Train on a **large-scale dataset** (~1.6M tweets) for better accuracy.
 - Showcase preprocessing, model training, evaluation, and visual comparison.
 - Provide a professional, shareable AI portfolio piece.
+
+---
+
+## 📥 Dataset
+- **Sentiment Analysis Dataset (1.6M tweets)**: [Download ZIP](https://nyc3.digitaloceanspaces.com/ml-files-distro/v1/sentiment-analysis-is-bad/data/training.1600000.processed.noemoticon.csv.zip)
 
 ---
 
@@ -46,17 +51,19 @@ The goal is to provide a **scalable, modern NLP solution** that demonstrates the
 📁Sentiment_Analysis_DeepLearning/
 │
 ├─📁 notebooks/
-│ └── sentiment_dl.ipynb # Main Colab/Jupyter notebook
+│ └── sentiment_dl.ipynb  # Main Colab/Jupyter notebook
 │
 ├─📁 src/
-│ ├── data_loader.py # Download dataset from external link
-│ ├── preprocess.py # Text cleaning and preprocessing
-│ ├── lstm_model.py # Build LSTM model
-│ ├── bert_model.py # Build DistilBERT model
-│ └── train.py # Training script for any model
+│ ├── data_loader.py      # Download dataset from external link
+│ ├── preprocess.py       # Text cleaning and preprocessing
+│ ├── lstm_model.py       # Build LSTM model
+│ ├── bert_model.py       # Build DistilBERT model
+│ └── train.py            # Training script for any model
 │
-├── requirements.txt # Required Python packages
-└── README.md # This file
+├── main.py               # Main Python code
+├── requirements.txt      # Required Python packages
+├── LICENSE               # LICENSE file
+└── README.md             # This file
 ```
 
 
@@ -91,26 +98,61 @@ Open notebooks/sentiment_dl.ipynb in Google Colab or Jupyter Notebook.
 
 ## Requirements (requirements.txt)
 - Python >= 3.8
+
+ **Data processing**
 - pandas
 - numpy
 - scikit-learn
-- nltk
-- matplotlib
-- tensorflow
+- requests
+
+ **NLP & Transformers**
+- torch
+- torchvision
+- torchtext
 - transformers
+- evaluate
+
+ **Text preprocessing**
+- nltk
+- spacy
+
+ **Visualization**
+- matplotlib
+- seaborn
+
+ **Progress bars**
+- tqdm
+
+ **Optional: for downloading large datasets**
+- urllib3
+
 - datasets
 
 Install all requirements with:
 ```bash
 pip install -r requirements.txt
 ```
+
+or manually:
+```bash
+pip install pandas numpy scikit-learn nltk matplotlib tensorflow transformers datasets
+```
+
+
 ## 📈 Model Performance
 
 - LSTM / BiLSTM: Good baseline results, suitable for smaller resources.
 
 - DistilBERT: Higher accuracy, better generalization, especially on large datasets.
 
-- Visual comparison available in the notebook (sentiment_dl.ipynb).
+ **Example**
+
+| Model         | Validation Accuracy |
+|---------------|---------------------|
+| LSTM          | 0.85                |
+| DistilBERT    | 0.92                |
+
+ **Visual comparison available in the notebook (sentiment_dl.ipynb).**
 
 ## 🧠 Future Plans
 

@@ -1,36 +1,78 @@
-import sys
-from src.data_loader import load_data
-from src.preprocess import preprocess_texts
-from src.lstm_model import build_lstm_model, prepare_lstm_data
-from src.bert_model import build_bert_model, get_tokenizer
-from sklearn.model_selection import train_test_split
+import numpy as np
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-def train(model_type="lstm"):
-    df = load_data()
-    
-    if model_type == "lstm":
-        X, y, tokenizer = preprocess_texts(df, method="lstm")
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-        
-        model = build_lstm_model()
-        model.fit(X_train, y_train, validation_split=0.2, epochs=2, batch_size=512)
-        loss, acc = model.evaluate(X_test, y_test)
-        print(f"LSTM Accuracy: {acc:.4f}")
+from transformers import Trainer, TrainingArguments
 
-    elif model_type == "bert":
-        tokenizer = get_tokenizer()
-        encodings = tokenizer(list(df["clean_text"]), truncation=True, padding=True, max_length=128)
-        import tensorflow as tf
-        X = dict(encodings)
-        y = df["target"].values
-        
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-        
-        model = build_bert_model()
-        model.fit(X_train, y_train, validation_split=0.1, epochs=2, batch_size=16)
-        loss, acc = model.evaluate(X_test, y_test)
-        print(f"BERT Accuracy: {acc:.4f}")
+def train_with_trainer(model, tokenizer, train_dataset, val_dataset, output_dir="./results", epochs=3, batch_size=16):
+    """
+    Train a Hugging Face model using Trainer API.
 
-if __name__ == "__main__":
-    model_type = sys.argv[1] if len(sys.argv) > 1 else "lstm"
-    train(model_type)
+    Args:
+        model: Hugging Face model (e.g., DistilBERT).
+        tokenizer: Hugging Face tokenizer.
+        train_dataset: Tokenized training dataset.
+        val_dataset: Tokenized validation dataset.
+        output_dir (str): Directory to save model results.
+        epochs (int): Number of training epochs.
+        batch_size (int): Training batch size.
+
+    Returns:
+        Trainer: Trained model with Trainer API.
+    """
+
+    def compute_metrics(eval_pred):
+        """
+        Compute evaluation metrics for Trainer.
+        """
+        logits, labels = eval_pred
+        predictions = np.argmax(logits, axis=-1)
+        acc = accuracy_score(labels, predictions)
+        return {"accuracy": acc}
+
+    training_args = TrainingArguments(
+        output_dir=output_dir,
+        evaluation_strategy="epoch",
+        save_strategy="epoch",
+        learning_rate=2e-5,
+        per_device_train_batch_size=batch_size,
+        per_device_eval_batch_size=batch_size,
+        num_train_epochs=epochs,
+        weight_decay=0.01,
+        logging_dir='./logs',
+        logging_steps=50,
+    )
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=val_dataset,
+        tokenizer=tokenizer,
+        compute_metrics=compute_metrics,
+    )
+
+    trainer.train()
+    return trainer
+
+
+def plot_confusion_matrix(y_true, y_pred, title="Confusion Matrix"):
+    """
+    Plot confusion matrix using seaborn heatmap.
+    """
+    cm = confusion_matrix(y_true, y_pred)
+    plt.figure(figsize=(6, 4))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.title(title)
+    plt.show()
+
+
+def print_classification_report(y_true, y_pred, target_names=None):
+    """
+    Print a classification report including precision, recall, and F1-score.
+    """
+    report = classification_report(y_true, y_pred, target_names=target_names)
+    print(report)
