@@ -8,6 +8,16 @@
 ![Platform-Colab](https://img.shields.io/badge/Notebook-Colab-blue)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 
+<!-- Libraries -->
+![pandas](https://img.shields.io/badge/pandas-1.6.2-blue?logo=pandas&logoColor=white)
+![numpy](https://img.shields.io/badge/numpy-2.0.2-blue?logo=numpy&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2.3-orange?logo=scikit-learn&logoColor=white)
+![nltk](https://img.shields.io/badge/nltk-3.8.1-blue)
+![matplotlib](https://img.shields.io/badge/matplotlib-3.8.0-red?logo=matplotlib&logoColor=white)
+![tensorflow](https://img.shields.io/badge/TensorFlow-2.15.0-orange?logo=tensorflow&logoColor=white)
+![datasets](https://img.shields.io/badge/datasets-4.0.0-lightgrey)
+![evaluate](https://img.shields.io/badge/evaluate-0.4.6-lightgrey)
+
 ---
 
 ## Overview
