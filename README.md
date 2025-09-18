@@ -9,14 +9,22 @@
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 
 <!-- Libraries -->
-![pandas](https://img.shields.io/badge/pandas-1.6.2-blue?logo=pandas&logoColor=white)
-![numpy](https://img.shields.io/badge/numpy-2.0.2-blue?logo=numpy&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2.3-orange?logo=scikit-learn&logoColor=white)
-![nltk](https://img.shields.io/badge/nltk-3.8.1-blue)
-![matplotlib](https://img.shields.io/badge/matplotlib-3.8.0-red?logo=matplotlib&logoColor=white)
-![tensorflow](https://img.shields.io/badge/TensorFlow-2.15.0-orange?logo=tensorflow&logoColor=white)
-![datasets](https://img.shields.io/badge/datasets-4.0.0-lightgrey)
-![evaluate](https://img.shields.io/badge/evaluate-0.4.6-lightgrey)
+![pandas](https://img.shields.io/badge/pandas-2.2.2-lightgrey?logo=pandas)
+![NumPy](https://img.shields.io/badge/NumPy-2.0.2-lightgrey?logo=numpy)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3.2-orange?logo=scikit-learn)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3.8.1-blue?logo=matplotlib)
+![Seaborn](https://img.shields.io/badge/Seaborn-0.12.2-blueviolet)
+![NLTK](https://img.shields.io/badge/NLTK-3.9.1-yellowgreen)
+![spaCy](https://img.shields.io/badge/spaCy-3.7.4-lightblue)
+![Torch](https://img.shields.io/badge/PyTorch-2.1.0-red?logo=PyTorch)
+![TorchVision](https://img.shields.io/badge/TorchVision-0.16.1-red)
+![TorchText](https://img.shields.io/badge/TorchText-0.17.1-red)
+![Evaluate](https://img.shields.io/badge/Evaluate-0.4.6-blue)
+![Datasets](https://img.shields.io/badge/Datasets-4.0.0-lightgrey)
+![tqdm](https://img.shields.io/badge/tqdm-4.67.1-blue)
+![Requests](https://img.shields.io/badge/Requests-2.32.4-lightgrey)
+![urllib3](https://img.shields.io/badge/urllib3-2.5.0-lightgrey)
+
 
 ---
 
