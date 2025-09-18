@@ -172,6 +172,25 @@ Version 2 represents a significant improvement over the first version because it
 
 ---
 
+## 📊 Visual Outputs
+
+### 1️⃣ Data Loading
+![Data Loader](images/Data loader.jpg)
+
+### 2️⃣ LSTM Model Build & Training
+![LSTM Tokenization & Model Build](images/LSTM tokenization and model build.jpg)
+![LSTM Model Training](images/LSTM Model training.jpg)
+![LSTM Confusion Matrix](images/LSTM Confusion matrix.jpg)
+
+### 3️⃣ DistilBERT Model Build & Training
+![DistilBERT Model Training](images/DistilBERT Model training.jpg)
+![DistilBERT Confusion Matrix](images/DistilBERT Confusion matrix.jpg)
+
+### 4️⃣ Performance Comparison
+![Performance Comparison](images/Performance Comparison.jpg)
+
+---
+
 ## 📌 Author
 ### Omar Khamis
 AI & Robotics Enthusiast | Python Developer
